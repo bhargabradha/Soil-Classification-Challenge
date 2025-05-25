@@ -1,0 +1,33 @@
+# Python specific
+__pycache__/
+*.pyc
+*.pyd
+*.so
+.Python
+Python*/
+build/
+dist/
+*.egg-info/
+.env
+venv/
+.venv/
+
+# IDEs
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Jupyter/IPython Notebooks
+.ipynb_checkpoints
+*.ipynb
+
+# Competition specific (outputs and large files)
+*.csv             # To ignore generated submission.csv or other output CSVs
+*.pth             # PyTorch model weights (if you don't want to track them, e.g., if too large)
+*.h5              # Keras/TensorFlow model weights (if you don't want to track them)
+*.log             # Log files
+
+# OS generated files
+.DS_Store
+Thumbs.db
