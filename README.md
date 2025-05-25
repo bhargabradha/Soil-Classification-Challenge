@@ -88,3 +88,24 @@ Feel free to reach out if you have any questions or feedback!
 * **Your Name:** Bhargab Dey
 * **Email:** bhargabdeyh@gmail.com
 * **GitHub Profile:** [Your GitHub Profile Link Here - e.g., https://github.com/bhargabradha]
+
+
+
+## Challenge-2: Soil Anomaly Detection (Autoencoder)
+
+This section addresses a different aspect of soil classification: **anomaly detection**. Instead of multi-class classification, this challenge focuses on identifying "normal" soil images versus "anomalous" (non-soil or unusual) images.
+
+### Architecture: Convolutional Autoencoder
+
+* **Model Type:** A custom-built **Convolutional Autoencoder** using TensorFlow/Keras.
+* **Purpose:** The autoencoder is trained in an unsupervised manner on a dataset consisting *only* of "normal" soil images. It learns to compress these images into a lower-dimensional representation (latent space) and then reconstruct them.
+* **Anomaly Detection Mechanism:**
+    * When a "normal" soil image is fed to the trained autoencoder, it can reconstruct it with a very low **reconstruction error** (the difference between the input and its reconstructed output).
+    * However, if an "anomalous" image (e.g., non-soil, corrupted, or significantly different from the training data) is fed, the autoencoder struggles to reconstruct it accurately, leading to a **high reconstruction error**.
+    * A statistical **threshold** (based on the mean and standard deviation of reconstruction errors on the training data) is used to classify new images:
+        * **Error < Threshold:** Classified as "Soil" (normal).
+        * **Error >= Threshold:** Classified as "Not Soil" (anomaly).
+
+### Files in `Challenge-2` Folder:
+
+* `soil_autoencoder_classifier.py`: Contains the full code for building, training, and evaluating the autoencoder, including data loading, preprocessing, model definition, training loop, error calculation, thresholding, and generating the submission file.
